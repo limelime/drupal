@@ -1,0 +1,74 @@
+/**
+ * @author Xuan Ngo
+ */
+
+body
+{
+  font-family: Oswald, Arial, Verdana;
+  font-size: 100%; /*Make letters bigger.*/
+}
+/**
+"Open Sans"
+Sintony 16px
+Oswald 18px
+**/
+
+/*Order view: customize symbol*/
+/*=========================================================*/
+table[class~="views-table"] caption
+{
+  font-weight:bold;
+  font-size: medium;
+  text-decoration: underline;
+  text-align: center;
+}
+
+/*Order/OrderTime view: Verified field*/
+/*=========================================================*/
+span[class="ow-check"], span[class="ow-cross"]
+{
+  font-weight:bold;
+}
+
+span[class="ow-check"]
+{
+  color: green;
+}
+
+span[class="ow-cross"]
+{
+  color: red;
+}
+
+/* Tablesorter: Icons for column table sorting in Views. */
+/*=========================================================*/
+table.tablesorter th.views-align-right
+{
+	/**
+	 * Leave extra space on the right side
+	 *  so that right-aligned header text doesn't overlap with up/down icons.
+	 */
+	padding-right: 2em;
+}
+
+/* Position icons to the right side and centered vertically.*/
+table.tablesorter thead tr th.tablesorter-header
+{
+  background-repeat: no-repeat;
+  background-position: center right;
+  cursor: pointer;
+}
+table.tablesorter thead tr th.tablesorter-headerUnSorted 
+{
+  background-image: url(tablesorter/bg.gif);
+}
+
+table.tablesorter thead tr th.tablesorter-headerDesc
+{
+  background-image: url(tablesorter/desc.gif);
+}
+
+table.tablesorter thead tr th.tablesorter-headerAsc
+{
+  background-image: url(tablesorter/asc.gif);
+}
