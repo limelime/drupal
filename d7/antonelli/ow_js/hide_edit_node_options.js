@@ -1,4 +1,5 @@
 /**
+ * On the node edit form, hide vertical tab.
  * @author Xuan Ngo
  */
 
