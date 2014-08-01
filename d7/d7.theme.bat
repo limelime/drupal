@@ -7,18 +7,21 @@ SET temp_color=%drupal_root_dir%\sites\default\files\color
 SET temp_css=%drupal_root_dir%\sites\default\files\css
 SET temp_js=%drupal_root_dir%\sites\default\files\js
 
+REM Clear temp folders.
 rd /q /s %temp_color%
 rd /q /s %temp_css%
 rd /q /s %temp_js%
 
-
-
+REM Install theme.
 rd /q /s %theme_dir%\antonelli
 mkdir %theme_dir%\antonelli
 xcopy /s/h/e antonelli %theme_dir%\antonelli\
 CALL drush.bat -r %drupal_root_dir% pm-enable -y antonelli
 CALL drush.bat -r %drupal_root_dir% vset -y theme_default antonelli
 
+REM Disable CSS and JS aggregations for debugging.
+CALL drush.bat -r %drupal_root_dir%  vset preprocess_js 0
+CALL drush.bat -r %drupal_root_dir%  vset preprocess_css 0
 
 REM =========================================================================================================
 CALL drush.bat -r %drupal_root_dir% cc theme-registry
