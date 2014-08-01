@@ -88,7 +88,7 @@
 watchdog(theme_path, "page-add testing");
 
 $theme_path = drupal_get_path('theme', $GLOBALS['theme']);
-drupal_add_js($theme_path . "/ow_js/HideEditNodeOptions.js");
+drupal_add_js($theme_path . "/ow_js/hide_edit_node_options.js");
 drupal_add_library('system', 'ui.accordion');
 
 ?>
