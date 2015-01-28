@@ -1,30 +1,13 @@
 <?php
 function oil_schema()
-{
+{// Schema API: https://api.drupal.org/api/drupal/includes%21database%21schema.inc/group/schemaapi/7
  $schema['oil_outstanding_shares'] = array(
     'description' => t('Outstanding oil shares per ETF.'),
     'fields' => array(
-      'symbol' => array(
-        'description' => t('ETF symbol.'),
-        'type' => 'varchar',
-        'length' => 10,
-        'not null' => TRUE),
-      'date' => array(
-        'description' => t('Date as integer using unix timestamps.'),
-        'type' => 'serial',
-        'size' => 'big';
-        'unsigned' => TRUE,
-        'not null' => TRUE),
-      'close_price' => array(
-        'description' => t('Close price.'),
-        'type' => 'numeric',
-        'not null' => TRUE),
-      'outstanding_shares' => array(
-        'description' => t('The number of outstanding shares.'),
-        'type' => 'serial',
-        'size' => 'big';
-        'unsigned' => TRUE,
-        'not null' => TRUE),
+      'symbol'              => array('type' => 'varchar', 'length'    => 10,                        'not null' => TRUE, 'description' => t('ETF symbol.')),
+      'date'                => array('type' => 'int'    , 'size'      => 'big', 'unsigned' => TRUE, 'not null' => TRUE, 'description' => t('Date as integer using unix timestamps.')),
+      'close_price'         => array('type' => 'numeric', 'precision' => 15,    'scale'    => 7,    'not null' => TRUE, 'description' => t('Close price.')), 
+      'outstanding_shares'  => array('type' => 'int'    , 'size'      => 'big', 'unsigned' => TRUE, 'not null' => TRUE, 'description' => t('The number of outstanding shares.')),
     ),
     'primary key' => array('symbol', 'date'),
   );
@@ -38,7 +21,8 @@ function oil_install()
   drupal_install_schema('oil');
 }
 
-function oil_uninstall() {
-  // Drop my tables.
-  //drupal_uninstall_schema('oil');
+function oil_uninstall()
+{
+  // Drop all tables belonging to module.
+  drupal_uninstall_schema('oil');
 }
