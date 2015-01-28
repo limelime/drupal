@@ -1,0 +1,44 @@
+<?php
+function oil_schema()
+{
+ $schema['oil_outstanding_shares'] = array(
+    'description' => t('Outstanding oil shares per ETF.'),
+    'fields' => array(
+      'symbol' => array(
+        'description' => t('ETF symbol.'),
+        'type' => 'varchar',
+        'length' => 10,
+        'not null' => TRUE),
+      'date' => array(
+        'description' => t('Date as integer using unix timestamps.'),
+        'type' => 'serial',
+        'size' => 'big';
+        'unsigned' => TRUE,
+        'not null' => TRUE),
+      'close_price' => array(
+        'description' => t('Close price.'),
+        'type' => 'numeric',
+        'not null' => TRUE),
+      'outstanding_shares' => array(
+        'description' => t('The number of outstanding shares.'),
+        'type' => 'serial',
+        'size' => 'big';
+        'unsigned' => TRUE,
+        'not null' => TRUE),
+    ),
+    'primary key' => array('symbol', 'date'),
+  );
+    
+  return $schema;
+}
+
+function oil_install()
+{
+  // Create my tables.
+  drupal_install_schema('oil');
+}
+
+function oil_uninstall() {
+  // Drop my tables.
+  //drupal_uninstall_schema('oil');
+}
