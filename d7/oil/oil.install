@@ -1,7 +1,7 @@
 <?php
 function oil_schema()
 {// Schema API: https://api.drupal.org/api/drupal/includes%21database%21schema.inc/group/schemaapi/7
- $schema['oil_outstanding_shares'] = array(
+  $schema['oil_outstanding_shares'] = array(
     'description' => t('Outstanding oil shares per ETF.'),
     'fields' => array(
       'symbol'              => array('type' => 'varchar', 'length'    => 10,                        'not null' => TRUE, 'description' => t('ETF symbol.')),
